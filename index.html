@@ -4,28 +4,47 @@
 
 <title>Aayush Sah</title>
 <link rel="icon" type="image/png" href="logo.png">
-</head>
-<body background="bg.png"  text="#1b2a44" >
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
 
-<table align="center" width="950" border="3" bordercolor="#2c4a75" cellpadding="30" cellspacing="0">
+  body {
+    background-image: url('bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+  .content-wrapper {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.55);
+  }
+</style>
+</head>
+<body text="#1b2a44" >
+
+<table class="content-wrapper" align="center" width="100%" border="3" bordercolor="#2c4a75" cellpadding="30" cellspacing="0">
 <tr>
 <td>
 
 <table width="100%" bgcolor="#2c4a75" cellpadding="15" cellspacing="0" border="0">
 <tr>
 <td align="center">
-<img src="logo.png" alt="Aayush Sah logo" width="50" height="50">
-<br>
-<font color="#ffffff" size="6"><b>Aayush Sah</b></font>
+<font color="#ffffff" size="10"><b>Aayush Sah</b></font>
 <br><br>
 <font color="#ffffff">
-<a href="#home"><font color="#ffffff">Home</font></a> |
-<a href="#skills"><font color="#ffffff">Skills</font></a> |
-<a href="#media"><font color="#ffffff">Media</font></a> |
-<a href="#education"><font color="#ffffff">Education</font></a> |
-<a href="#goals"><font color="#ffffff">Goals</font></a> |
-<a href="#contact"><font color="#ffffff">Contact</font></a> |
-<a href="#feedback"><font color="#ffffff">Feedback</font></a>
+<a href="#home"><font color="#ffffff" size="5">Home</font></a> |
+<a href="#skills"><font color="#ffffff"size="5">Skills</font></a> |
+<a href="#media"><font color="#ffffff"size="5">Media</font></a> |
+<a href="#education"><font color="#ffffff"size="5">Education</font></a> |
+<a href="#goals"><font color="#ffffff"size="5">Goals</font></a> |
+<a href="#contact"><font color="#ffffff"size="5">Contact</font></a> |
+<a href="#feedback"><font color="#ffffff"size="5">Feedback</font></a>
 </font>
 </td>
 </tr>
@@ -39,10 +58,10 @@
 <tr>
 <td width="60%" valign="middle">
 <font size="7" color="#2c4a75"><b>I'M AAYUSH</b></font>
-<h2><font color="#555555">Grade 11 Student &bull; Tech Enthusiast</font></h2>
-<p>Hi, I'm Aayush, a Grade 11 student passionate about technology, programming and building creative digital projects. This website is my HTML laboratory assignment for school.</p>
-<h3><font color="#2c4a75">Grade 11 "G", St. Xavier's College, Maitighar, Kathmandu</font></h3>
-<p>I am currently studying in <strong>Grade 11, Section "G"</strong> at <strong>St. Xavier's College, Maitighar, Kathmandu</strong>. I have a strong interest in web development, programming, graphic design and exploring new technology.</p>
+<h1><font color="#555555">Grade 11 Student &bull; Tech Enthusiast</font></h1>
+<p><font size="5">Hi, I'm Aayush, a Grade 11 student passionate about technology, programming and building creative digital projects. This website is my HTML laboratory assignment for school.</font></p>
+<h2><font color="#2c4a75">Grade 11 "G", St. Xavier's College, Maitighar, Kathmandu</font></h2>
+<p><font size="5">I am currently studying in <strong>Grade 11, Section "G"</strong> at <strong>St. Xavier's College, Maitighar, Kathmandu</strong>. I have a strong interest in web development, programming, graphic design and exploring new technology.</p>
 <ul>
 <li>Studying in Grade 11 "G"</li>
 <li>Based in Kathmandu, Nepal</li>
@@ -51,10 +70,10 @@
 <p>
 <a href="#skills">Explore My Skills</a> &nbsp;|&nbsp;
 <a href="#media">View My Projects</a>
-</p>
+</font></p>
 </td>
 <td width="40%" align="center" valign="middle">
-<img src="profile.png" alt="Aayush Sah profile image" width="285" height="401" border="5">
+<img src="profile.png" alt="Aayush Sah profile image" width="400" height="550" border="5">
 </td>
 </tr>
 </table>
@@ -62,11 +81,9 @@
 
 <hr color="#4a7dbd" size="3" width="99%">
 
-<!-- TEXT FORMATTING -->
 <section id="formatting">
-<h2><font color="#2c4a75">HTML Text Formatting Demonstration</font></h2>
-<p>This section shows some of the HTML text tags I learned in class.</p>
-
+<h1><font color="#2c4a75">HTML Text Formatting Demonstration</font></h1>
+<font size="4"><p>This section shows some of the HTML text tags I learned in class.</p>
 <h4><font color="#2c4a75">Chemistry &amp; Science Corner</font></h4>
 <p>Water is made of two elements and is written as H<sub>2</sub>O. Einstein's famous equation is written as E = mc<sup>2</sup>.</p>
 
@@ -97,7 +114,6 @@
 <h4><font color="#2c4a75">Playing Chhath Song</font></h4>
 <audio controls>
 <source src="audio.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
 </audio>
 </td>
 </tr>
@@ -132,7 +148,7 @@ Your browser does not support the video element.
 <h2><font color="#2c4a75">Advanced HTML Embedding</font></h2>
 <h4><font color="#2c4a75">Using &lt;iframe&gt;</font></h4>
 <p>I have used the iframe tag to embed a website that I created for Chhath songs. This website contains information and songs related to Chhath.</p>
-<iframe src="https://chhathi-maiya.vercel.app/" title="chhathi-maiya songs" width="100%" height="500"> </iframe>
+<iframe src="https://chhathi-maiya.vercel.app/" title="chhathi-maiya songs" width="100%" height="650"> </iframe>
 </section>
 
 <hr color="#4a7dbd" size="3" width="99%">
@@ -217,7 +233,7 @@ Your browser does not support the video element.
 
 <!-- FEEDBACK FORM -->
 <section id="feedback">
-<h2><font color="#2c4a75">Feedback Form</font></h2>
+<center><h2><font color="#2c4a75">Feedback Form</font></h2></center>
 <center>
 <table border="2" bordercolor="#4a7dbd" bgcolor="#f4f8fc" cellpadding="25" width="500">
 <tr>
@@ -293,10 +309,10 @@ Your browser does not support the video element.
 </center>
 </section>
 
-<hr color="#a9c1de" size="1">
+<hr color="#a9c1de" size="2">
 
 <!-- FOOTER / CONTACT -->
-<table id="contact" width="100%" bgcolor="#2c4a75" cellpadding="20" cellspacing="0" border="0">
+<table id="contact" width="100%" bgcolor="#2c4a75" cellpadding="10" cellspacing="0" border="0">
 <tr>
 <td align="center">
 <font color="#ffffff" size="5"><b>Contact Me At</b></font>
