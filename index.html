@@ -1,653 +1,1620 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aayush Sah | Grade 11 Portfolio</title>
 
-    <title>Aayush Sah | HTML Portfolio Lab</title>
+    <style>
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(91, 76, 255, 0.18), transparent 28%),
+                radial-gradient(circle at 90% 20%, rgba(0, 220, 255, 0.12), transparent 25%),
+                #080b14;
+            color: #f4f7ff;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img,
+        video,
+        iframe,
+        object,
+        embed {
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 100px 0;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #73e8ff;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            max-width: 650px;
+            margin: 12px auto 0;
+            color: #9ca8bd;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 11, 20, 0.72);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        nav {
+            width: min(1120px, 92%);
+            height: 70px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #72e8ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b8c2d5;
+            font-size: 0.92rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #72e8ff;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 90px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: rgba(91, 76, 255, 0.18);
+            filter: blur(70px);
+            top: 20%;
+            left: -80px;
+            animation: floatGlow 7s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(0, 210, 255, 0.12);
+            filter: blur(70px);
+            right: -60px;
+            bottom: 10%;
+            animation: floatGlow 8s ease-in-out infinite reverse;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 14px;
+            border: 1px solid rgba(115, 232, 255, 0.25);
+            background: rgba(115, 232, 255, 0.06);
+            color: #73e8ff;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.95;
+            letter-spacing: -4px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #ffffff, #73e8ff, #8b7cff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            margin: 25px 0 18px;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #c2cada;
+        }
+
+        .hero-description {
+            color: #8e9bb2;
+            max-width: 650px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: 0.3s;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6b5cff, #20c9e8);
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #dce5f7;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: floatImage 5s ease-in-out infinite;
+        }
+
+        .profile-frame {
+            width: 300px;
+            height: 300px;
+            padding: 8px;
+            border-radius: 35px;
+            background: linear-gradient(135deg, #72e8ff, #715cff, transparent 70%);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+            transform: rotate(3deg);
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 28px;
+            display: block;
+            background: #111625;
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 30px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(14px);
+            transition: 0.35s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(115, 232, 255, 0.22);
+        }
+
+        .about-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .about-info p {
+            color: #9ca8bd;
+        }
+
+        .info-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            color: #aeb9cd;
+        }
+
+        .info-list strong {
+            color: white;
+        }
+
+        /* ==================== TEXT FORMATTING ==================== */
+        .formatting-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .format-item {
+            padding: 20px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .format-item h3 {
+            color: #73e8ff;
+            margin-bottom: 8px;
+        }
+
+        .format-item h4,
+        .format-item h5,
+        .format-item h6 {
+            margin: 7px 0;
+        }
+
+        .format-item p {
+            color: #a9b4c8;
+        }
+
+        mark {
+            background: #73e8ff;
+            color: #071018;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        blockquote {
+            margin-top: 15px;
+            padding: 18px 20px;
+            border-left: 3px solid #73e8ff;
+            background: rgba(115, 232, 255, 0.05);
+            color: #d8e1f1;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+        }
+
+        /* ==================== MEDIA ==================== */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .media-card {
+            text-align: center;
+        }
+
+        .media-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .media-card p {
+            color: #8f9bb0;
+            margin-bottom: 20px;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 16px;
+            background: #000;
+        }
+
+        /* ==================== ADVANCED EMBEDDING ==================== */
+        .embedding-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .embed-card {
+            text-align: center;
+        }
+
+        .embed-card h3 {
+            color: #73e8ff;
+            margin-bottom: 10px;
+        }
+
+        .embed-card object,
+        .embed-card iframe,
+        .embed-card embed {
+            width: 100%;
+            height: 300px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: white;
+        }
+
+        /* ==================== SKILLS ==================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-number {
+            font-size: 0.8rem;
+            color: #73e8ff;
+            letter-spacing: 2px;
+        }
+
+        .skill-card h3 {
+            margin: 8px 0;
+        }
+
+        .skill-card p {
+            color: #909db3;
+            font-size: 0.92rem;
+        }
+
+        .skill-line {
+            height: 4px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            margin-top: 18px;
+            overflow: hidden;
+        }
+
+        .skill-line span {
+            display: block;
+            height: 100%;
+            width: 75%;
+            background: linear-gradient(90deg, #715cff, #73e8ff);
+            border-radius: inherit;
+        }
+
+        /* ==================== HOBBIES ==================== */
+        .hobbies-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .hobbies-list li {
+            padding: 24px 15px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .hobbies-list li:hover {
+            transform: translateY(-6px);
+            background: rgba(115, 232, 255, 0.07);
+        }
+
+        .hobby-icon {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        /* ==================== EDUCATION ==================== */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        thead {
+            background: rgba(115, 232, 255, 0.08);
+        }
+
+        th,
+        td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        th {
+            color: #73e8ff;
+        }
+
+        td {
+            color: #aeb9cd;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        /* ==================== GOALS ==================== */
+        .goals-card {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .goals-list {
+            margin: 25px 0 0 22px;
+            color: #aeb9cd;
+        }
+
+        .goals-list li {
+            padding: 7px 0;
+        }
+
+        /* ==================== CONTACT FORM ==================== */
+        .form-card {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            color: #cbd4e5;
+            margin-bottom: 7px;
+            font-size: 0.9rem;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            outline: none;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        select option {
+            background: #101522;
+            color: white;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #73e8ff;
+            box-shadow: 0 0 0 3px rgba(115, 232, 255, 0.08);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .radio-group,
+        .check-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .radio-group label,
+        .check-group label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin: 0;
+        }
+
+        .radio-group input,
+        .check-group input {
+            width: auto;
+        }
+
+        .form-buttons {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: auto;
+            cursor: pointer;
+            padding: 13px 25px;
+            font-weight: 700;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(135deg, #6b5cff, #20c9e8);
+            border: none;
+        }
+
+        input[type="reset"] {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            padding: 45px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            text-align: center;
+            color: #7e8ba1;
+        }
+
+        footer strong {
+            color: #dce5f4;
+        }
+
+        footer p + p {
+            margin-top: 5px;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0) rotate(3deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(3deg);
+            }
+        }
+
+        @keyframes floatGlow {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(30px, -25px);
+            }
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 900px) {
+            .hero-content,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .media-grid,
+            .embedding-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hobbies-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .section {
+                padding: 70px 0;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .profile-frame {
+                width: 240px;
+                height: 240px;
+            }
+
+            .formatting-grid,
+            .skills-grid,
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .form-buttons {
+                grid-column: auto;
+            }
+
+            .hobbies-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 430px) {
+            nav {
+                height: 62px;
+            }
+
+            .nav-links {
+                gap: 8px;
+            }
+
+            .nav-links a {
+                font-size: 0.65rem;
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .hobbies-list {
+                grid-template-columns: 1fr;
+            }
+
+            .glass-card {
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ================================
-         HEADER
-    ================================= -->
-
+    <!-- ==================== NAVIGATION ==================== -->
     <header>
-        <h1>Welcome to My HTML Portfolio</h1>
+        <nav>
+            <a href="#home" class="logo">AAYUSH<span>.</span></a>
 
-        <p>
-            Hello! My name is <strong>Aayush Sah</strong>.
-            I am a Grade 11 student at <strong>St. Xavier's College, Maitighar</strong>,
-            Kathmandu.
-        </p>
-
-        <hr>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#goals">Goals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
 
-    <!-- ================================
-         MAIN CONTENT
-    ================================= -->
-
     <main>
 
-        <!-- ================================
-             1. TEXT FORMATTING
-        ================================= -->
+        <!-- ==================== HERO SECTION ==================== -->
+        <section class="hero section" id="home">
+            <div class="container hero-content">
 
-        <section>
-            <h2>About Me</h2>
+                <div class="hero-text">
+                    <span class="eyebrow">GRADE 11 • XI "G"</span>
 
-            <p>
-                I am a student who is interested in
-                <strong>technology and web development</strong>.
-                I enjoy learning how websites work and creating my own projects.
-            </p>
+                    <h1>
+                        AAYUSH<br>
+                        <span>SAH</span>
+                    </h1>
 
-            <p>
-                I am currently learning
-                <em>HTML, CSS, JavaScript, Dart and C programming</em>.
-            </p>
+                    <p class="hero-subtitle">
+                        Grade 11 Student • Web Developer • Tech Enthusiast
+                    </p>
 
-            <p>
-                I believe that <b>practice</b> and <i>creativity</i>
-                are important for becoming a better programmer.
-            </p>
+                    <p class="hero-description">
+                        Hi, I'm Aayush, a Grade 11 student passionate about
+                        technology, programming and building creative digital projects.
+                    </p>
 
-            <p>
-                One of my goals is to become a
-                <mark>skilled software developer</mark>
-                and create useful applications.
-            </p>
+                    <div class="hero-buttons">
+                        <a href="#skills" class="btn btn-primary">Explore My Skills</a>
+                        <a href="#projects" class="btn btn-secondary">View My Projects</a>
+                    </div>
+                </div>
 
-            <p>
-                This is a <small>small piece of text demonstrating the small tag.</small>
-            </p>
+                <div class="hero-image">
+                    <div class="profile-frame">
+                        <img src="profile.jpg"
+                             alt="Aayush Sah profile image"
+                             width="300"
+                             height="300">
+                    </div>
+                </div>
 
-            <p>
-                I am <ins>continuously improving my skills</ins>
-                and trying to learn something new every day.
-            </p>
-
-            <p>
-                I do not want to <del>stop learning</del>.
-                Instead, I want to keep improving my knowledge.
-            </p>
-
-            <p>
-                Examples of subscripts and superscripts:
-                H<sub>2</sub>O and X<sup>2</sup>.
-            </p>
-
-            <blockquote>
-                "Success comes from continuous learning, practice and patience."
-            </blockquote>
+            </div>
         </section>
 
 
-        <!-- ================================
-             HEADINGS H1 - H6
-        ================================= -->
+        <!-- ==================== ABOUT SECTION ==================== -->
+        <section class="section" id="about">
+            <div class="container">
 
-        <section>
-            <h2>HTML Heading Demonstration</h2>
+                <div class="section-title">
+                    <span>01 / About</span>
+                    <h2>Who I Am</h2>
+                    <p>A short introduction about my academic journey and interests.</p>
+                </div>
 
-            <h1>Heading 1</h1>
-            <h2>Heading 2</h2>
-            <h3>Heading 3</h3>
-            <h4>Heading 4</h4>
-            <h5>Heading 5</h5>
-            <h6>Heading 6</h6>
+                <div class="about-grid">
+
+                    <div class="glass-card about-info">
+                        <h3>Student Profile</h3>
+
+                        <p>
+                            I am currently studying in Grade 11 at
+                            <strong>St. Xavier's College, Maitighar, Kathmandu</strong>.
+                            I enjoy learning how technology works and turning ideas
+                            into simple digital projects.
+                        </p>
+
+                        <ul class="info-list">
+                            <li><strong>Name:</strong> Aayush Sah</li>
+                            <li><strong>Grade:</strong> 11</li>
+                            <li><strong>Section:</strong> XI "G"</li>
+                            <li><strong>College:</strong> St. Xavier's College</li>
+                            <li><strong>Location:</strong> Maitighar, Kathmandu</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3>My Interests</h3>
+
+                        <p>
+                            My main interests include
+                            <strong>Web Development</strong>,
+                            <strong>Programming</strong>,
+                            <strong>Graphic Design</strong> and
+                            <strong>Technology</strong>.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            I enjoy experimenting with HTML, CSS and JavaScript,
+                            while also learning programming languages such as
+                            Dart and C.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            My goal is to keep improving through
+                            <em>practice, curiosity and personal projects</em>.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
         </section>
 
 
-        <!-- ================================
-             2. IMAGE
-        ================================= -->
+        <!-- ==================== HTML TEXT FORMATTING ==================== -->
+        <section class="section" id="formatting">
+            <div class="container">
 
-        <section>
-            <h2>My Profile Image</h2>
+                <div class="section-title">
+                    <span>02 / HTML Basics</span>
+                    <h2>HTML Text Formatting Demonstration</h2>
+                    <p>
+                        A practical demonstration of different HTML text-formatting elements.
+                    </p>
+                </div>
 
-            <p>
-                The following image demonstrates the HTML
-                <code>&lt;img&gt;</code> tag.
-            </p>
+                <div class="formatting-grid">
 
-            <img
-                src="profile.jpg"
-                alt="My Profile Image"
-                width="300"
-                height="300"
-            >
+                    <div class="format-item">
+                        <h3>Headings</h3>
+                        <h1>Heading 1 — My Portfolio</h1>
+                        <h2>Heading 2 — My Skills</h2>
+                        <h3>Heading 3 — Web Development</h3>
+                        <h4>Heading 4 — Programming</h4>
+                        <h5>Heading 5 — Learning</h5>
+                        <h6>Heading 6 — Grade 11 Student</h6>
+                    </div>
+
+                    <div class="format-item">
+                        <h3>Text Styles</h3>
+
+                        <p>
+                            <strong>Strong:</strong> Programming is an important skill I am developing.
+                        </p>
+
+                        <p>
+                            <em>Emphasis:</em> I enjoy learning new technology.
+                        </p>
+
+                        <p>
+                            <b>Bold:</b> HTML is the foundation of this assignment.
+                        </p>
+
+                        <p>
+                            <i>Italic:</i> Creativity makes projects more interesting.
+                        </p>
+                    </div>
+
+                    <div class="format-item">
+                        <h3>Special Formatting</h3>
+
+                        <p>
+                            <mark>Highlighted Goal:</mark>
+                            Build useful technology projects.
+                        </p>
+
+                        <p>
+                            <small>Small text: This portfolio was created as an HTML laboratory assignment.</small>
+                        </p>
+
+                        <p>
+                            <ins>Inserted text:</ins> I am continuously improving my coding skills.
+                        </p>
+
+                        <p>
+                            <del>Old goal:</del> Only learning basic HTML.
+                        </p>
+                    </div>
+
+                    <div class="format-item">
+                        <h3>Scientific & Mathematical Text</h3>
+
+                        <p>
+                            Water is represented as H<sub>2</sub>O.
+                        </p>
+
+                        <p>
+                            Einstein's famous equation is E = mc<sup>2</sup>.
+                        </p>
+
+                        <blockquote>
+                            "Learning technology is not about knowing everything;
+                            it is about being curious enough to keep learning."
+                        </blockquote>
+                    </div>
+
+                </div>
+            </div>
         </section>
 
 
-        <!-- ================================
-             3. AUDIO
-        ================================= -->
+        <!-- ==================== IMAGE ==================== -->
+        <section class="section">
+            <div class="container">
 
-        <section>
-            <h2>My Audio</h2>
+                <div class="section-title">
+                    <span>03 / Visual</span>
+                    <h2>My Profile</h2>
+                    <p>A profile image displayed using the HTML image element.</p>
+                </div>
 
-            <p>
-                The following audio player demonstrates the HTML5
-                <code>&lt;audio&gt;</code> element.
-            </p>
+                <div class="glass-card" style="max-width: 500px; margin: auto; text-align: center;">
+                    <img src="profile.jpg"
+                         alt="Aayush Sah profile image"
+                         width="300"
+                         height="300"
+                         style="border-radius: 22px; width: 300px; height: 300px; object-fit: cover;">
 
-            <audio controls>
-                <source src="audio.mp3" type="audio/mpeg">
-                <source src="audio.ogg" type="audio/ogg">
+                    <h3 style="margin-top: 20px;">Aayush Sah</h3>
+                    <p style="color:#9ca8bd;">Grade 11 • XI "G"</p>
+                </div>
 
-                Your browser does not support the audio element.
-            </audio>
+            </div>
         </section>
 
 
-        <!-- ================================
-             4. VIDEO
-        ================================= -->
+        <!-- ==================== MEDIA SECTION ==================== -->
+        <section class="section" id="media">
+            <div class="container">
 
-        <section>
-            <h2>My Video</h2>
+                <div class="section-title">
+                    <span>04 / Media</span>
+                    <h2>My Media</h2>
+                    <p>
+                        HTML5 audio and video elements used directly inside the portfolio.
+                    </p>
+                </div>
 
-            <p>
-                The following video player demonstrates the HTML5
-                <code>&lt;video&gt;</code> element.
-            </p>
+                <div class="media-grid">
 
-            <video
-                controls
-                poster="poster.jpg"
-                width="500"
-                height="300"
-            >
-                <source src="video.mp4" type="video/mp4">
-                <source src="video.webm" type="video/webm">
+                    <!-- AUDIO -->
+                    <div class="glass-card media-card">
+                        <h3>🎵 My Audio</h3>
 
-                Your browser does not support the video element.
-            </video>
+                        <p>
+                            A local audio file demonstrated using the HTML5 audio element.
+                        </p>
+
+                        <audio controls>
+                            <source src="audio.mp3" type="audio/mpeg">
+                            <source src="audio.ogg" type="audio/ogg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- VIDEO -->
+                    <div class="glass-card media-card">
+                        <h3>🎬 My Video</h3>
+
+                        <p>
+                            A local video file demonstrated using the HTML5 video element.
+                        </p>
+
+                        <video controls poster="poster.jpg" width="500">
+                            <source src="video.mp4" type="video/mp4">
+                            <source src="video.webm" type="video/webm">
+                            Your browser does not support the video element.
+                        </video>
+                    </div>
+
+                </div>
+            </div>
         </section>
 
 
-        <!-- ================================
-             5. ADVANCED EMBEDDING
-        ================================= -->
+        <!-- ==================== ADVANCED HTML EMBEDDING ==================== -->
+        <section class="section">
+            <div class="container">
 
-        <section>
-            <h2>Advanced HTML Embedding</h2>
+                <div class="section-title">
+                    <span>05 / Advanced HTML</span>
+                    <h2>Advanced HTML Embedding</h2>
+                    <p>
+                        Demonstration of object, embed and iframe elements.
+                    </p>
+                </div>
 
+                <div class="embedding-grid">
 
-            <!-- OBJECT -->
+                    <!-- OBJECT -->
+                    <div class="glass-card embed-card">
+                        <h3>&lt;object&gt;</h3>
 
-            <h3>Using &lt;object&gt;</h3>
+                        <p>Embedding a PDF document.</p>
 
-            <p>
-                The object element can be used to embed external
-                resources such as PDF documents.
-            </p>
+                        <object
+                            data="sample.pdf"
+                            type="application/pdf"
+                            width="600"
+                            height="400">
 
-            <object
-                data="sample.pdf"
-                type="application/pdf"
-                width="600"
-                height="400"
-            >
-                <p>
-                    Your browser cannot display the PDF.
-                    Please download the PDF instead.
-                </p>
-            </object>
+                            <p>Your browser cannot display the PDF.</p>
 
+                        </object>
+                    </div>
 
-            <!-- EMBED -->
+                    <!-- EMBED -->
+                    <div class="glass-card embed-card">
+                        <h3>&lt;embed&gt;</h3>
 
-            <h3>Using &lt;embed&gt;</h3>
+                        <p>Embedding the same PDF.</p>
 
-            <p>
-                The embed element can also be used to embed
-                external content.
-            </p>
+                        <embed
+                            src="sample.pdf"
+                            type="application/pdf"
+                            width="600"
+                            height="400">
+                    </div>
 
-            <embed
-                src="sample.pdf"
-                type="application/pdf"
-                width="600"
-                height="400"
-            >
+                    <!-- IFRAME -->
+                    <div class="glass-card embed-card">
+                        <h3>&lt;iframe&gt;</h3>
 
+                        <p>A useful educational resource.</p>
 
-            <!-- IFRAME -->
+                        <iframe
+                            src="https://www.w3schools.com/html/"
+                            title="W3Schools HTML Educational Resource">
+                        </iframe>
+                    </div>
 
-            <h3>Using &lt;iframe&gt;</h3>
-
-            <p>
-                An iframe allows another webpage or online resource
-                to be displayed inside the current webpage.
-            </p>
-
-            <iframe
-                src="https://www.wikipedia.org/"
-                width="600"
-                height="400"
-                title="Wikipedia Website"
-            >
-            </iframe>
-
+                </div>
+            </div>
         </section>
 
 
-        <!-- ================================
-             6. MY SKILLS
-        ================================= -->
+        <!-- ==================== SKILLS ==================== -->
+        <section class="section" id="skills">
+            <div class="container">
 
-        <section>
-            <h2>My Skills</h2>
+                <div class="section-title">
+                    <span>06 / Skills</span>
+                    <h2>What I'm Learning</h2>
+                    <p>
+                        These are technical skills I am learning and developing as a student.
+                    </p>
+                </div>
 
-            <h3>Technical Skills</h3>
+                <div class="skills-grid">
 
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Dart</li>
-                <li>C Programming</li>
-                <li>Git and GitHub</li>
-            </ul>
+                    <div class="glass-card skill-card">
+                        <span class="skill-number">01</span>
+                        <h3>HTML</h3>
+                        <p>
+                            Learning how to structure websites using semantic HTML
+                            and different HTML elements.
+                        </p>
+                        <div class="skill-line"><span style="width: 85%;"></span></div>
+                    </div>
 
+                    <div class="glass-card skill-card">
+                        <span class="skill-number">02</span>
+                        <h3>CSS</h3>
+                        <p>
+                            Practicing layouts, responsive design, colors,
+                            animations and modern interfaces.
+                        </p>
+                        <div class="skill-line"><span style="width: 75%;"></span></div>
+                    </div>
 
-            <h3>Learning Goals</h3>
+                    <div class="glass-card skill-card">
+                        <span class="skill-number">03</span>
+                        <h3>JavaScript</h3>
+                        <p>
+                            Learning the fundamentals of programming and
+                            interactive web experiences.
+                        </p>
+                        <div class="skill-line"><span style="width: 60%;"></span></div>
+                    </div>
 
-            <ol>
-                <li>Improve my HTML and CSS skills</li>
-                <li>Learn advanced JavaScript</li>
-                <li>Develop web applications</li>
-                <li>Learn Flutter and Dart</li>
-                <li>Build useful software projects</li>
-            </ol>
+                    <div class="glass-card skill-card">
+                        <span class="skill-number">04</span>
+                        <h3>Dart</h3>
+                        <p>
+                            Exploring Dart programming and understanding
+                            its syntax and programming concepts.
+                        </p>
+                        <div class="skill-line"><span style="width: 45%;"></span></div>
+                    </div>
+
+                    <div class="glass-card skill-card">
+                        <span class="skill-number">05</span>
+                        <h3>C Programming</h3>
+                        <p>
+                            Developing an understanding of variables,
+                            conditions, loops and basic programming logic.
+                        </p>
+                        <div class="skill-line"><span style="width: 50%;"></span></div>
+                    </div>
+
+                    <div class="glass-card skill-card">
+                        <span class="skill-number">06</span>
+                        <h3>Git &amp; GitHub</h3>
+                        <p>
+                            Learning how developers manage, organize and
+                            share code using version control.
+                        </p>
+                        <div class="skill-line"><span style="width: 40%;"></span></div>
+                    </div>
+
+                </div>
+
+            </div>
         </section>
 
 
-        <!-- ================================
-             7. MY HOBBIES
-        ================================= -->
+        <!-- ==================== HOBBIES ==================== -->
+        <section class="section">
+            <div class="container">
 
-        <section>
-            <h2>My Hobbies</h2>
+                <div class="section-title">
+                    <span>07 / Interests</span>
+                    <h2>My Hobbies</h2>
+                    <p>Things I enjoy doing outside regular classroom learning.</p>
+                </div>
 
-            <ul>
-                <li>Web Development</li>
-                <li>Programming</li>
-                <li>Graphic Design</li>
-                <li>Learning New Technologies</li>
-                <li>Playing Football</li>
-                <li>Working on Personal Projects</li>
-            </ul>
+                <ul class="hobbies-list">
+
+                    <li>
+                        <span class="hobby-icon">⚽</span>
+                        Football
+                    </li>
+
+                    <li>
+                        <span class="hobby-icon">💻</span>
+                        Programming
+                    </li>
+
+                    <li>
+                        <span class="hobby-icon">🎨</span>
+                        Graphic Design
+                    </li>
+
+                    <li>
+                        <span class="hobby-icon">🚀</span>
+                        Exploring Technology
+                    </li>
+
+                    <li>
+                        <span class="hobby-icon">🛠️</span>
+                        Personal Projects
+                    </li>
+
+                </ul>
+
+            </div>
         </section>
 
 
-        <!-- ================================
-             8. EDUCATION TABLE
-        ================================= -->
+        <!-- ==================== PROJECTS ==================== -->
+        <section class="section" id="projects">
+            <div class="container">
 
-        <section>
-            <h2>My Education</h2>
+                <div class="section-title">
+                    <span>08 / Practice</span>
+                    <h2>My Project Interests</h2>
+                    <p>
+                        Areas where I want to use my skills to create useful digital projects.
+                    </p>
+                </div>
 
-            <table border="1" cellpadding="10" cellspacing="0">
+                <div class="skills-grid">
 
-                <thead>
-                    <tr>
-                        <th>Level</th>
-                        <th>Institution</th>
-                        <th>Location</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
+                    <div class="glass-card">
+                        <span class="skill-number">01</span>
+                        <h3>Web Projects</h3>
+                        <p>
+                            Creating responsive websites and experimenting with
+                            modern HTML, CSS and JavaScript.
+                        </p>
+                    </div>
 
-                <tbody>
+                    <div class="glass-card">
+                        <span class="skill-number">02</span>
+                        <h3>Creative Design</h3>
+                        <p>
+                            Combining programming and graphic design to create
+                            attractive digital experiences.
+                        </p>
+                    </div>
 
-                    <tr>
-                        <td>Secondary Level</td>
-                        <td>School</td>
-                        <td>Nepal</td>
-                        <td>Completed</td>
-                    </tr>
+                    <div class="glass-card">
+                        <span class="skill-number">03</span>
+                        <h3>Technology Ideas</h3>
+                        <p>
+                            Exploring ideas for applications that can solve
+                            simple real-world problems.
+                        </p>
+                    </div>
 
-                    <tr>
-                        <td>Grade 11</td>
-                        <td>St. Xavier's College</td>
-                        <td>Maitighar, Kathmandu</td>
-                        <td>Currently Studying</td>
-                    </tr>
+                </div>
 
-                    <tr>
-                        <td>Future Studies</td>
-                        <td>University</td>
-                        <td>Nepal / Abroad</td>
-                        <td>Planned</td>
-                    </tr>
-
-                </tbody>
-
-            </table>
+            </div>
         </section>
 
 
-        <!-- ================================
-             9. FUTURE GOALS
-        ================================= -->
+        <!-- ==================== EDUCATION ==================== -->
+        <section class="section" id="education">
+            <div class="container">
 
-        <section>
-            <h2>My Future Goals</h2>
+                <div class="section-title">
+                    <span>09 / Education</span>
+                    <h2>My Education</h2>
+                    <p>A simple overview of my academic journey.</p>
+                </div>
 
-            <p>
-                My goal is to become a successful technology professional.
-                I want to improve my programming skills and build applications
-                that can solve real-world problems.
-            </p>
+                <div class="table-wrapper">
 
-            <p>
-                In the future, I would like to explore
-                <strong>software development, artificial intelligence,
-                web development and mobile application development</strong>.
-            </p>
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Level</th>
+                                <th>Institution</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Secondary Level</td>
+                                <td>School</td>
+                                <td>Nepal</td>
+                                <td>Completed</td>
+                            </tr>
+
+                            <tr>
+                                <td>Grade 11</td>
+                                <td>St. Xavier's College</td>
+                                <td>Maitighar, Kathmandu</td>
+                                <td>Currently Studying</td>
+                            </tr>
+
+                            <tr>
+                                <td>Future Studies</td>
+                                <td>University</td>
+                                <td>Nepal / Abroad</td>
+                                <td>Planned</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
         </section>
 
 
-        <!-- ================================
-             10. HTML FORM
-        ================================= -->
-
-        <section>
-            <h2>Contact / Feedback Form</h2>
-
-            <p>
-                You can use this form to send feedback about my portfolio.
-            </p>
-
-            <form action="#" method="post">
-
-                <!-- Name -->
-
-                <label for="name">Full Name:</label>
-                <br>
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Enter your name"
-                    required
-                >
-
-                <br><br>
-
-
-                <!-- Email -->
-
-                <label for="email">Email:</label>
-                <br>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    required
-                >
-
-                <br><br>
-
-
-                <!-- Password -->
-
-                <label for="password">Password:</label>
-                <br>
-
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Enter password"
-                >
-
-                <br><br>
-
-
-                <!-- Age -->
-
-                <label for="age">Age:</label>
-                <br>
-
-                <input
-                    type="number"
-                    id="age"
-                    name="age"
-                    min="1"
-                    max="100"
-                >
-
-                <br><br>
-
-
-                <!-- Date -->
-
-                <label for="date">Date:</label>
-                <br>
-
-                <input
-                    type="date"
-                    id="date"
-                    name="date"
-                >
-
-                <br><br>
-
-
-                <!-- Gender -->
-
-                <p>Gender:</p>
-
-                <input
-                    type="radio"
-                    id="male"
-                    name="gender"
-                    value="male"
-                >
-
-                <label for="male">Male</label>
-
-                <br>
-
-                <input
-                    type="radio"
-                    id="female"
-                    name="gender"
-                    value="female"
-                >
-
-                <label for="female">Female</label>
-
-                <br>
-
-                <input
-                    type="radio"
-                    id="other"
-                    name="gender"
-                    value="other"
-                >
-
-                <label for="other">Other</label>
-
-                <br><br>
-
-
-                <!-- Interests -->
-
-                <p>Interests:</p>
-
-                <input
-                    type="checkbox"
-                    id="coding"
-                    name="interest"
-                    value="coding"
-                >
-
-                <label for="coding">Coding</label>
-
-                <br>
-
-                <input
-                    type="checkbox"
-                    id="design"
-                    name="interest"
-                    value="design"
-                >
-
-                <label for="design">Graphic Design</label>
-
-                <br>
-
-                <input
-                    type="checkbox"
-                    id="football"
-                    name="interest"
-                    value="football"
-                >
-
-                <label for="football">Football</label>
-
-                <br><br>
-
-
-                <!-- Select -->
-
-                <label for="subject">
-                    Favorite Subject:
-                </label>
-
-                <br>
-
-                <select id="subject" name="subject">
-
-                    <option value="">
-                        Select a subject
-                    </option>
-
-                    <option value="computer">
-                        Computer Science
-                    </option>
-
-                    <option value="physics">
-                        Physics
-                    </option>
-
-                    <option value="chemistry">
-                        Chemistry
-                    </option>
-
-                    <option value="math">
-                        Mathematics
-                    </option>
-
-                    <option value="english">
-                        English
-                    </option>
-
-                </select>
-
-                <br><br>
-
-
-                <!-- Message -->
-
-                <label for="message">
-                    Your Message:
-                </label>
-
-                <br>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="6"
-                    cols="50"
-                    placeholder="Write your feedback here..."
-                ></textarea>
-
-                <br><br>
-
-
-                <!-- Submit -->
-
-                <input
-                    type="submit"
-                    value="Submit Form"
-                >
-
-                <input
-                    type="reset"
-                    value="Reset Form"
-                >
-
-            </form>
-
+        <!-- ==================== FUTURE GOALS ==================== -->
+        <section class="section" id="goals">
+            <div class="container">
+
+                <div class="section-title">
+                    <span>10 / Future</span>
+                    <h2>My Future Goals</h2>
+                    <p>What I hope to learn and build in the future.</p>
+                </div>
+
+                <div class="glass-card goals-card">
+
+                    <h3>Building My Future With Technology</h3>
+
+                    <p style="margin-top: 12px; color: #aeb9cd;">
+                        My long-term goal is to become a
+                        <strong>skilled software developer</strong>.
+                        I want to keep learning, experiment with new technologies
+                        and create useful applications.
+                    </p>
+
+                    <ul class="goals-list">
+                        <li>Improve my <strong>programming skills</strong>.</li>
+                        <li>Learn advanced <em>web development</em>.</li>
+                        <li>Explore <strong>Artificial Intelligence</strong>.</li>
+                        <li>Develop useful applications and digital projects.</li>
+                        <li>Improve my problem-solving and logical thinking.</li>
+                        <li>Continue learning new areas of technology.</li>
+                    </ul>
+
+                    <p style="margin-top: 20px; color: #aeb9cd;">
+                        <mark>My goal is to keep learning and turn ideas into useful technology.</mark>
+                    </p>
+
+                </div>
+
+            </div>
         </section>
 
 
-        <!-- ================================
-             11. ADDITIONAL HTML ELEMENTS
-        ================================= -->
+        <!-- ==================== CONTACT / FEEDBACK FORM ==================== -->
+        <section class="section" id="contact">
+            <div class="container">
 
-        <section>
-            <h2>Additional HTML Demonstration</h2>
+                <div class="section-title">
+                    <span>11 / Contact</span>
+                    <h2>Contact / Feedback</h2>
+                    <p>
+                        A demonstration of common HTML form elements.
+                    </p>
+                </div>
 
-            <p>
-                This portfolio was created using
-                <strong>HTML</strong> without requiring a CSS framework.
-            </p>
+                <div class="glass-card form-card">
 
-            <p>
-                I am currently working on different projects and learning
-                new technologies.
-            </p>
+                    <form action="#" method="post">
 
-            <p>
-                Chemical formula example:
-                CO<sub>2</sub>
-            </p>
+                        <!-- FULL NAME -->
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                placeholder="Enter your full name"
+                                required>
+                        </div>
 
-            <p>
-                Mathematical example:
-                E = mc<sup>2</sup>
-            </p>
+                        <!-- EMAIL -->
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required>
+                        </div>
 
+                        <!-- PASSWORD -->
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter a password">
+                        </div>
+
+                        <!-- AGE -->
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input
+                                type="number"
+                                id="age"
+                                name="age"
+                                min="1"
+                                max="100"
+                                placeholder="Enter your age">
+                        </div>
+
+                        <!-- DATE -->
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input
+                                type="date"
+                                id="date"
+                                name="date">
+                        </div>
+
+                        <!-- GENDER -->
+                        <div class="form-group">
+                            <label>Gender</label>
+
+                            <div class="radio-group">
+
+                                <label for="male">
+                                    <input
+                                        type="radio"
+                                        id="male"
+                                        name="gender"
+                                        value="Male">
+                                    Male
+                                </label>
+
+                                <label for="female">
+                                    <input
+                                        type="radio"
+                                        id="female"
+                                        name="gender"
+                                        value="Female">
+                                    Female
+                                </label>
+
+                                <label for="other">
+                                    <input
+                                        type="radio"
+                                        id="other"
+                                        name="gender"
+                                        value="Other">
+                                    Other
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <!-- INTERESTS -->
+                        <div class="form-group full">
+                            <label>Interests</label>
+
+                            <div class="check-group">
+
+                                <label for="coding">
+                                    <input
+                                        type="checkbox"
+                                        id="coding"
+                                        name="interests"
+                                        value="Coding">
+                                    Coding
+                                </label>
+
+                                <label for="design">
+                                    <input
+                                        type="checkbox"
+                                        id="design"
+                                        name="interests"
+                                        value="Graphic Design">
+                                    Graphic Design
+                                </label>
+
+                                <label for="football">
+                                    <input
+                                        type="checkbox"
+                                        id="football"
+                                        name="interests"
+                                        value="Football">
+                                    Football
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <!-- FAVORITE SUBJECT -->
+                        <div class="form-group full">
+                            <label for="subject">Favorite Subject</label>
+
+                            <select id="subject" name="subject">
+                                <option value="">Select a subject</option>
+                                <option value="computer">Computer Science</option>
+                                <option value="physics">Physics</option>
+                                <option value="chemistry">Chemistry</option>
+                                <option value="mathematics">Mathematics</option>
+                                <option value="english">English</option>
+                            </select>
+                        </div>
+
+                        <!-- MESSAGE -->
+                        <div class="form-group full">
+                            <label for="message">Message</label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Write your feedback or message here..."></textarea>
+                        </div>
+
+                        <!-- BUTTONS -->
+                        <div class="form-buttons">
+
+                            <input
+                                type="submit"
+                                value="Submit Feedback">
+
+                            <input
+                                type="reset"
+                                value="Reset Form">
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
         </section>
 
     </main>
 
 
-    <!-- ================================
-         FOOTER
-    ================================= -->
-
+    <!-- ==================== FOOTER ==================== -->
     <footer>
+        <div class="container">
 
-        <hr>
+            <p>
+                <strong>© 2026 Aayush Sah</strong>
+            </p>
 
-        <p>
-            &copy; 2026 Aayush Sah | HTML Portfolio Lab
-        </p>
+            <p>
+                Grade 11 • St. Xavier's College, Maitighar
+            </p>
 
-        <p>
-            Created for HTML Laboratory Assignment.
-        </p>
+            <p>
+                Created for HTML Laboratory Assignment
+            </p>
 
+        </div>
     </footer>
 
 </body>
 </html>
-```
-
