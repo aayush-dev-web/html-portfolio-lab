@@ -22,10 +22,10 @@
   .wrapper {
     max-width: 950px;
     margin: 25px auto;
-    background-color: #ffffff;
+    background-color: transparent;
+    border: 3px solid #2c4a75;
     padding: 30px 40px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   }
 
   /* Navigation */
@@ -111,11 +111,36 @@
     background-color: #f4f8fc;
   }
 
-  /* Audio / Video */
+  /* Audio / Video cards */
+  .media-box {
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 20px 25px;
+    border: 2px solid #4a7dbd;
+    border-radius: 10px;
+    background-color: rgba(244, 248, 252, 0.85);
+    text-align: center;
+  }
+
   audio, video {
     display: block;
-    margin: 15px auto;
+    margin: 15px auto 0 auto;
     max-width: 100%;
+  }
+
+  /* Social icons */
+  .social-links {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .social-links a {
+    display: inline-block;
+    margin: 0 8px;
+  }
+
+  .social-links svg {
+    vertical-align: middle;
   }
 
   /* Embedding */
@@ -255,7 +280,7 @@
 <!-- ABOUT SECTION -->
 <section id="about">
 <h2>About Me</h2>
-<img src="profile.png" alt="Aayush Sah profile image" width="300" height="300">
+<img src="profile.png" alt="Aayush Sah profile image" width="300" height="534">
 <h3>Aayush Sah</h3>
 <h4>Grade 11 "G", St. Xavier's College, Maitighar, Kathmandu</h4>
 <p>I am currently studying in <strong>Grade 11, Section "G"</strong> at <strong>St. Xavier's College, Maitighar, Kathmandu</strong>. I have a strong interest in web development, programming, graphic design and exploring new technology.</p>
@@ -300,10 +325,13 @@
 <section id="audio-section">
 <h2>My Audio</h2>
 <p>Here is a short audio clip I've added to demonstrate the HTML5 audio element as part of this laboratory assignment.</p>
+<div class="media-box">
+<h4>Now Playing</h4>
 <audio controls>
 <source src="audio.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+</div>
 </section>
 
 <hr>
@@ -312,10 +340,13 @@ Your browser does not support the audio element.
 <section id="media">
 <h2>My Video</h2>
 <p>This section demonstrates the HTML5 video element, complete with a poster image shown before the video is played.</p>
+<div class="media-box">
+<h4>Now Playing</h4>
 <video controls poster="poster.jpg" width="500">
 <source src="vdo.mp4" type="video/mp4">
 Your browser does not support the video element.
 </video>
+</div>
 </section>
 
 <hr>
@@ -417,6 +448,25 @@ Your browser does not support the video element.
 <section id="contact">
 <div class="form-box">
 <h2>Contact / Feedback Form</h2>
+
+<div class="social-links">
+<a href="https://www.instagram.com/aayusz7/" target="_blank" rel="noopener noreferrer" title="Follow me on Instagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
+<defs>
+<linearGradient id="igGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+<stop offset="0%" stop-color="#feda75"></stop>
+<stop offset="30%" stop-color="#d62976"></stop>
+<stop offset="60%" stop-color="#962fbf"></stop>
+<stop offset="100%" stop-color="#4f5bd5"></stop>
+</linearGradient>
+</defs>
+<rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igGradient)"></rect>
+<circle cx="12" cy="12" r="5" fill="none" stroke="#ffffff" stroke-width="1.8"></circle>
+<circle cx="17.2" cy="6.8" r="1.1" fill="#ffffff"></circle>
+</svg>
+</a>
+</div>
+
 <form>
 
 <div>
@@ -491,6 +541,15 @@ Your browser does not support the video element.
 </form>
 </div>
 </section>
+
+<hr>
+
+<!-- FOOTER -->
+<footer>
+<p>&copy; 2026 <strong>Aayush Sah</strong></p>
+<p>Grade 11 &bull; St. Xavier's College, Maitighar</p>
+<p><small>Created for HTML Laboratory Assignment</small></p>
+</footer>
 
 </div>
 
