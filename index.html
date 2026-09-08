@@ -5,6 +5,149 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aayush Sah - Grade 11 Portfolio</title>
 <style>
+
+  /* Page background */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  /* Main content box that sits on top of the background */
+  .wrapper {
+    max-width: 950px;
+    margin: 25px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Navigation */
+  header {
+    text-align: center;
+    background-color: #2c4a75;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+  }
+
+  header h1 {
+    margin: 0 0 8px 0;
+  }
+
+  header a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 4px 8px;
+  }
+
+  header a:hover {
+    text-decoration: underline;
+  }
+
+  /* Headings */
+  h2 {
+    color: #2c4a75;
+    border-bottom: 3px solid #4a7dbd;
+    padding-bottom: 6px;
+    margin-top: 40px;
+  }
+
+  h3, h4 {
+    color: #2c4a75;
+  }
+
+  /* Hero section */
+  #home {
+    text-align: center;
+    padding: 20px 10px 10px 10px;
+  }
+
+  #home h2 {
+    border-bottom: none;
+    color: #555555;
+    font-weight: normal;
+    margin-top: 10px;
+  }
+
+  /* Profile image */
+  #about img {
+    display: block;
+    margin: 15px auto;
+    border-radius: 10px;
+    border: 4px solid #4a7dbd;
+  }
+
+  /* Lists */
+  ul {
+    line-height: 1.8;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+  }
+
+  th {
+    background-color: #4a7dbd;
+    color: #ffffff;
+    padding: 10px;
+  }
+
+  td {
+    padding: 10px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f4f8fc;
+  }
+
+  /* Audio / Video */
+  audio, video {
+    display: block;
+    margin: 15px auto;
+    max-width: 100%;
+  }
+
+  /* Embedding */
+  iframe, object, embed {
+    display: block;
+    margin: 15px auto;
+    border: 2px solid #4a7dbd;
+    border-radius: 5px;
+    max-width: 100%;
+  }
+
+  /* Horizontal rules between sections */
+  hr {
+    border: none;
+    border-top: 1px solid #d0d0d0;
+    margin: 30px 0;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    background-color: #2c4a75;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+    margin-top: 30px;
+  }
+
+  footer p {
+    margin: 4px 0;
+  }
+
   /* Styling only for the Contact / Feedback Form */
   .form-box {
     max-width: 500px;
@@ -19,6 +162,7 @@
     text-align: center;
     color: #2c4a75;
     margin-top: 0;
+    border-bottom: none;
   }
 
   .form-box div {
@@ -45,6 +189,7 @@
     border-radius: 5px;
     background-color: #ffffff;
     font-size: 14px;
+    box-sizing: border-box;
   }
 
   .form-box .inline-choice {
@@ -71,9 +216,12 @@
     background-color: #d9d9d9;
     color: #333333;
   }
+
 </style>
 </head>
 <body>
+
+<div class="wrapper">
 
 <!-- NAVIGATION -->
 <header>
@@ -107,7 +255,7 @@
 <!-- ABOUT SECTION -->
 <section id="about">
 <h2>About Me</h2>
-<img src="profile.jpg" alt="Aayush Sah profile image" width="300" height="300">
+<img src="profile.png" alt="Aayush Sah profile image" width="300" height="300">
 <h3>Aayush Sah</h3>
 <h4>Grade 11 "G", St. Xavier's College, Maitighar, Kathmandu</h4>
 <p>I am currently studying in <strong>Grade 11, Section "G"</strong> at <strong>St. Xavier's College, Maitighar, Kathmandu</strong>. I have a strong interest in web development, programming, graphic design and exploring new technology.</p>
@@ -151,10 +299,9 @@
 <!-- AUDIO -->
 <section id="audio-section">
 <h2>My Audio</h2>
-<p>Here is a short audio recording I've added to demonstrate the HTML5 audio element as part of this laboratory assignment.</p>
+<p>Here is a short audio clip I've added to demonstrate the HTML5 audio element as part of this laboratory assignment.</p>
 <audio controls>
 <source src="audio.mp3" type="audio/mpeg">
-<source src="audio.ogg" type="audio/ogg">
 Your browser does not support the audio element.
 </audio>
 </section>
@@ -164,10 +311,9 @@ Your browser does not support the audio element.
 <!-- VIDEO -->
 <section id="media">
 <h2>My Video</h2>
-<p>This section demonstrates the HTML5 video element, complete with a poster image and multiple video sources for browser compatibility.</p>
+<p>This section demonstrates the HTML5 video element, complete with a poster image shown before the video is played.</p>
 <video controls poster="poster.jpg" width="500">
-<source src="video.mp4" type="video/mp4">
-<source src="video.webm" type="video/webm">
+<source src="vdo.mp4" type="video/mp4">
 Your browser does not support the video element.
 </video>
 </section>
@@ -178,19 +324,9 @@ Your browser does not support the video element.
 <section id="embedding">
 <h2>Advanced HTML Embedding</h2>
 
-<h4>Using &lt;object&gt;</h4>
-<p>Embedding a sample PDF document using the object tag.</p>
-<object data="sample.pdf" type="application/pdf" width="600" height="400">
-<p>Your browser cannot display the PDF.</p>
-</object>
-
-<h4>Using &lt;embed&gt;</h4>
-<p>Embedding the same PDF document using the embed tag.</p>
-<embed src="sample.pdf" type="application/pdf" width="600" height="400">
-
 <h4>Using &lt;iframe&gt;</h4>
 <p>Embedding an external educational resource using the iframe tag.</p>
-<iframe src="https://www.w3schools.com/html/" title="W3Schools HTML Tutorial" width="600" height="400"></iframe>
+<iframe src="https://www.w3schools.com/html/" title="W3Schools HTML Tutorial" width="100%" height="400"> </iframe>
 </section>
 
 <hr>
@@ -356,14 +492,7 @@ Your browser does not support the video element.
 </div>
 </section>
 
-<hr>
-
-<!-- FOOTER -->
-<footer>
-<p>&copy; 2026 <strong>Aayush Sah</strong></p>
-<p>Grade 11 &bull; St. Xavier's College, Maitighar</p>
-<p><small>Created for HTML Laboratory Assignment</small></p>
-</footer>
+</div>
 
 </body>
 </html>
