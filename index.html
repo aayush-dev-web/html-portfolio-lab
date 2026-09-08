@@ -4,6 +4,74 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aayush Sah - Grade 11 Portfolio</title>
+<style>
+  /* Styling only for the Contact / Feedback Form */
+  .form-box {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 25px 30px;
+    border: 2px solid #4a7dbd;
+    border-radius: 10px;
+    background-color: #f4f8fc;
+  }
+
+  .form-box h2 {
+    text-align: center;
+    color: #2c4a75;
+    margin-top: 0;
+  }
+
+  .form-box div {
+    margin-bottom: 15px;
+  }
+
+  .form-box label {
+    display: block;
+    font-weight: bold;
+    color: #2c4a75;
+    margin-bottom: 5px;
+  }
+
+  .form-box input[type="text"],
+  .form-box input[type="email"],
+  .form-box input[type="password"],
+  .form-box input[type="number"],
+  .form-box input[type="date"],
+  .form-box select,
+  .form-box textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #a9c1de;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 14px;
+  }
+
+  .form-box .inline-choice {
+    font-weight: normal;
+    display: inline;
+    margin-right: 15px;
+  }
+
+  .form-box input[type="submit"],
+  .form-box input[type="reset"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .form-box input[type="submit"] {
+    background-color: #4a7dbd;
+    color: #ffffff;
+  }
+
+  .form-box input[type="reset"] {
+    background-color: #d9d9d9;
+    color: #333333;
+  }
+</style>
 </head>
 <body>
 
@@ -211,6 +279,7 @@ Your browser does not support the video element.
 
 <!-- FORM -->
 <section id="contact">
+<div class="form-box">
 <h2>Contact / Feedback Form</h2>
 <form>
 
@@ -246,17 +315,17 @@ Your browser does not support the video element.
 
 <div>
 <label>Gender</label><br>
-<label for="male"><input type="radio" id="male" name="gender" value="male"> Male</label>
-<label for="female"><input type="radio" id="female" name="gender" value="female"> Female</label>
-<label for="other"><input type="radio" id="other" name="gender" value="other"> Other</label>
+<label for="male" class="inline-choice"><input type="radio" id="male" name="gender" value="male"> Male</label>
+<label for="female" class="inline-choice"><input type="radio" id="female" name="gender" value="female"> Female</label>
+<label for="other" class="inline-choice"><input type="radio" id="other" name="gender" value="other"> Other</label>
 </div>
 <br>
 
 <div>
 <label>Interests</label><br>
-<label for="coding"><input type="checkbox" id="coding" name="interests" value="coding"> Coding</label>
-<label for="design"><input type="checkbox" id="design" name="interests" value="design"> Graphic Design</label>
-<label for="football"><input type="checkbox" id="football" name="interests" value="football"> Football</label>
+<label for="coding" class="inline-choice"><input type="checkbox" id="coding" name="interests" value="coding"> Coding</label>
+<label for="design" class="inline-choice"><input type="checkbox" id="design" name="interests" value="design"> Graphic Design</label>
+<label for="football" class="inline-choice"><input type="checkbox" id="football" name="interests" value="football"> Football</label>
 </div>
 <br>
 
@@ -284,6 +353,7 @@ Your browser does not support the video element.
 </div>
 
 </form>
+</div>
 </section>
 
 <hr>
